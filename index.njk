@@ -1,0 +1,88 @@
+---
+layout: base.njk
+---
+<section class="page-section hero" id="home">
+  <div class="image-field" aria-hidden="true">
+    <i class="bg bg-daisies"></i>
+    <i class="bg bg-mech"></i>
+    <i class="bg bg-score one"></i>
+    <i class="bg bg-score two"></i>
+    <i class="bg bg-figure"></i>
+    <i class="bg bg-spine"></i>
+  </div>
+  <div class="hero-copy">
+    <h1>{{ site.hero_title }}</h1>
+    <div class="rule"></div>
+    <h2>{{ site.hero_subtitle | replace('\n','<br>') | safe }}</h2>
+    <p>{{ site.hero_intro }}</p>
+    <a class="text-link" href="#call">Entra nell’indice <span>→</span></a>
+  </div>
+</section>
+
+<section class="page-section section-call" id="call">
+  <div class="section-bg" aria-hidden="true"></div>
+  <div class="section-copy narrow">
+    <p class="eyebrow">Call</p>
+    <h2>{{ site.call_title }}</h2>
+    <p>{{ site.call_intro }}</p>
+    <p class="strong">Scadenza: {{ site.call_deadline }}</p>
+    <a class="text-link" href="/call/">Leggi il bando <span>→</span></a>
+  </div>
+</section>
+
+<section class="page-section section-testi" id="testi">
+  <div class="section-bg" aria-hidden="true"></div>
+  <div class="section-copy wide">
+    <p class="eyebrow">Testi</p>
+    <h2>Scritture pubblicate.</h2>
+    <div class="list-lines">
+      {% for item in collections.testi | reverse | slice(0,3) %}
+        <a href="{{ item.url }}"><em>{{ item.data.title }}</em><span>{{ item.data.author }}</span></a>
+      {% endfor %}
+    </div>
+    <a class="text-link" href="/testi/">Leggi tutti i testi <span>→</span></a>
+  </div>
+</section>
+
+<section class="page-section section-note" id="note">
+  <div class="section-bg" aria-hidden="true"></div>
+  <div class="section-copy narrow right-copy">
+    <p class="eyebrow">Note</p>
+    <h2>Appunti e attraversamenti.</h2>
+    <p>Le note raccolgono letture, immagini, ascolti e margini teorici: appunti di lavoro, verifiche, tagli.</p>
+    <div class="mini-list">
+      {% for item in collections.note | reverse | slice(0,3) %}
+        <a href="{{ item.url }}">{{ item.data.title }}</a>
+      {% endfor %}
+    </div>
+    <a class="text-link" href="/note/">Leggi le note <span>→</span></a>
+  </div>
+</section>
+
+<section class="page-section section-noi" id="noi">
+  <div class="section-bg" aria-hidden="true"></div>
+  <div class="section-copy narrow">
+    <p class="eyebrow">Noi</p>
+    <h2>{{ site.noi_title }}</h2>
+    <p>{{ site.noi_intro }}</p>
+    <a class="text-link" href="/noi/">Chi siamo <span>→</span></a>
+  </div>
+</section>
+
+<section class="page-section section-progetti" id="progetti">
+  <div class="section-bg" aria-hidden="true"></div>
+  <div class="section-copy wide">
+    <p class="eyebrow">Altri progetti</p>
+    <h2>Fuori dalla rivista.</h2>
+    <div class="project-list">
+      {% for item in collections.progetti | reverse | slice(0,3) %}
+        <p><em>{{ item.data.title }}</em><br>{{ item.data.excerpt }}</p>
+      {% endfor %}
+    </div>
+    <a class="text-link" href="/progetti/">Scopri i progetti <span>→</span></a>
+  </div>
+  <footer class="footer">
+    <p>© {{ site.name }}</p>
+    <nav><a href="mailto:{{ site.contact_email }}">Contatti</a><a href="/noi/">Manifesto</a><a href="#">Privacy</a><a href="/admin/">Admin</a></nav>
+  </footer>
+</section>

@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: Call
+permalink: /call/
+pageClass: internal
+---
+<section class="page-section hero internal-hero">
+  <div class="image-field" aria-hidden="true"><i class="bg bg-daisies"></i><i class="bg bg-mech"></i><i class="bg bg-score one"></i></div>
+  <div class="hero-copy"><h1>Call</h1><div class="rule"></div><h2>{{ site.call_title }}</h2></div>
+</section>
+<section class="content-page single-content">
+  <aside><p>Scadenza: {{ site.call_deadline }}</p><p>Modifica questa pagina da <code>/admin</code>.</p></aside>
+  <div class="prose">
+    {% for item in collections.call | reverse %}
+      {{ item.templateContent | safe }}
+    {% endfor %}
+  </div>
+</section>
