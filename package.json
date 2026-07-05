@@ -1,10 +1,10 @@
 {
-  "name": "mancuspie-netlify",
+  "name": "mancuspie-netlify-decap-clean",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "start": "eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
